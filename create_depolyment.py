@@ -1,5 +1,6 @@
 from pipeline import data_pipeline
-from prefect import deploy, GitRepository
+from prefect import deploy
+from prefect.runner.storage import GitRepository
 
 if __name__ == "__main__":
     deploy(
