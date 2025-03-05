@@ -1,5 +1,5 @@
 from pipeline import data_pipeline
-from prefect import deploy
+from prefect import deploy, GitRepository
 
 if __name__ == "__main__":
     deploy(
@@ -9,8 +9,11 @@ if __name__ == "__main__":
                 "input_file": "studentsdata.csv",
                 "output_file": "newstudents.csv"
             },
+            git=GitRepository(
+                url="https://github.com/rishikherde/prefect-test.git",
+                branch="main", #or whatever branch you are using
+            ),
+            entrypoint="pipeline.py:data_pipeline",
         ),
         work_pool_name="default-agent-pool",
-        source="https://github.com/rishikherde/prefect-test.git", #replace with your repo
-        entrypoint="pipeline.py:data_pipeline",
     )
