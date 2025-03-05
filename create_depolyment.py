@@ -9,8 +9,8 @@ if __name__ == "__main__":
                 "input_file": "studentsdata.csv",
                 "output_file": "newstudents.csv"
             },
-            source="https://github.com/rishikherde/prefect-test.git",  # Replace with your repo
-            entrypoint="pipeline.py:data_pipeline",
         ),
-        work_pool_name="default-agent-pool"
+        work_pool_name="default-agent-pool",
+        source="https://github.com/rishikherde/prefect-test.git", #replace with your repo
+        entrypoint="pipeline.py:data_pipeline",
     )
